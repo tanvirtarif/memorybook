@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Story of Little Me | Laibo Land</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; background-color: #FAF5F0; }
+        .font-eng { font-family: 'Nunito', sans-serif; }
+        .bg-pattern { background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23f472b6" fill-opacity="0.05" fill-rule="evenodd"%3E%3Ccircle cx="3" cy="3" r="3"/%3E%3Ccircle cx="13" cy="13" r="3"/%3E%3C/g%3E%3C/svg%3E'); }
+        .glass { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.3); }
+        .modal { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .modal.active { display: flex; opacity: 1; z-index: 1000; }
+        
+        /* Custom Scrollbar for flipbook */
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-pattern text-gray-800">
+
+    <!-- Sticky Header -->
+    <header class="fixed top-0 w-full glass z-50 shadow-sm border-b border-pink-100">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <!-- Laibo Land Logo Placeholder -->
+                <div class="w-10 h-10 bg-gradient-to-tr from-pink-400 to-orange-300 rounded-full flex items-center justify-center text-white font-bold text-xl font-eng shadow-md">L</div>
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-orange-400 font-eng tracking-tight">LAIBO Land</h1>
+            </div>
+            <a href="#order-section" class="bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 rounded-full font-semibold transition-all shadow-md shadow-pink-200 transform hover:scale-105">অর্ডার করুন</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-28 pb-12 px-4 max-w-4xl mx-auto text-center">
+        <div class="inline-block bg-pink-100 text-pink-600 px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-pink-200">
+            <i class="fas fa-star text-yellow-500 mr-1"></i> মায়েদের প্রথম পছন্দ
+        </div>
+        <h2 class="text-3xl md:text-5xl font-bold mb-4 text-gray-800 leading-tight">
+            সোনামণির শৈশবের সব স্মৃতি জমা থাকুক <br>
+            <span class="text-pink-500 font-eng">"The Story of Little Me"</span> বুকে
+        </h2>
+        <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            বাচ্চারা চোখের পলকে বড় হয়ে যায়। তাদের জন্মের প্রথম আযান, আকিকা, প্রথম দাঁত ওঠা থেকে শুরু করে প্রথম স্কুলে যাওয়ার সব অমূল্য স্মৃতিগুলো চিরকাল ফ্রেমবন্দী করে রাখুন।
+        </p>
+
+        <!-- Product Image Placeholder -->
+        <div class="relative w-full max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl mb-10 border-4 border-white bg-white">
+            <div class="aspect-video bg-gray-100 flex items-center justify-center relative">
+                <!-- Actual image goes here -->
+                <img src="https://placehold.co/800x450/ffe4e6/be185d?text=Baby+Memory+Book+Cover" alt="Memory Book Cover" class="w-full object-cover">
+                <div class="absolute top-4 right-4 bg-red-500 text-white px-4 py-2 rounded-full font-bold shadow-lg animate-bounce">
+                    সীমিত অফার!
+                </div>
+            </div>
+        </div>
+
+        <!-- Sticky Countdown Banner -->
+        <div class="bg-gradient-to-r from-pink-500 to-orange-400 rounded-2xl p-6 text-white shadow-xl max-w-2xl mx-auto mb-12">
+            <h3 class="text-2xl font-bold mb-2">স্পেশাল ডিসকাউন্ট অফার!</h3>
+            <div class="flex items-center justify-center gap-4 text-xl mb-4">
+                <span class="line-through text-pink-200 decoration-2">মূল্য: ৬০০৳</span>
+                <span class="text-3xl font-extrabold bg-white text-pink-500 px-4 py-1 rounded-lg">অফারে: ৫৫০৳</span>
+            </div>
+            <p class="text-lg mb-4 font-semibold"><i class="fas fa-truck mr-2"></i>ডেলিভারি চার্জ সম্পূর্ণ ফ্রি! (সারাদেশে)</p>
+            
+            <div class="flex justify-center gap-3 text-center" id="countdown">
+                <div class="bg-white/20 rounded-lg p-2 w-16 backdrop-blur-sm">
+                    <div id="hours" class="text-3xl font-bold font-eng">06</div>
+                    <div class="text-xs">ঘণ্টা</div>
+                </div>
+                <div class="text-3xl font-bold py-2">:</div>
+                <div class="bg-white/20 rounded-lg p-2 w-16 backdrop-blur-sm">
+                    <div id="minutes" class="text-3xl font-bold font-eng">00</div>
+                    <div class="text-xs">মিনিট</div>
+                </div>
+                <div class="text-3xl font-bold py-2">:</div>
+                <div class="bg-white/20 rounded-lg p-2 w-16 backdrop-blur-sm">
+                    <div id="seconds" class="text-3xl font-bold font-eng">00</div>
+                    <div class="text-xs">সেকেন্ড</div>
+                </div>
+            </div>
+            <p class="text-sm mt-3 opacity-90">* অফারটি শেষ হওয়ার আগেই অর্ডার কনফার্ম করুন</p>
+        </div>
+    </section>
+
+    <!-- Book Details & Features -->
+    <section class="py-12 bg-white px-4">
+        <div class="max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-10 text-gray-800">বইটিতে কী কী থাকছে?</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Feature Items based on PDF -->
+                <div class="flex items-start gap-4 p-4 rounded-xl border border-pink-100 hover:shadow-md transition">
+                    <div class="bg-pink-100 text-pink-500 p-3 rounded-full"><i class="fas fa-mosque fa-fw"></i></div>
+                    <div><h4 class="font-bold text-lg">প্রথম আযান ও আকিকা</h4><p class="text-gray-600 text-sm">জন্মের পর কানে শোনা প্রথম আযান এবং আকিকার সুন্দর মুহূর্তগুলো লিখে রাখার বিশেষ পাতা।</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-4 rounded-xl border border-pink-100 hover:shadow-md transition">
+                    <div class="bg-pink-100 text-pink-500 p-3 rounded-full"><i class="fas fa-shoe-prints fa-fw"></i></div>
+                    <div><h4 class="font-bold text-lg">হাত ও পায়ের ছাপ</h4><p class="text-gray-600 text-sm">বাচ্চার ছোট্ট হাতের ও পায়ের ছাপ (Tiny Handprint & Footprint) নেওয়ার কিউট ব্যবস্থা।</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-4 rounded-xl border border-pink-100 hover:shadow-md transition">
+                    <div class="bg-pink-100 text-pink-500 p-3 rounded-full"><i class="fas fa-tooth fa-fw"></i></div>
+                    <div><h4 class="font-bold text-lg">Teeth & Growth Chart</h4><p class="text-gray-600 text-sm">দাঁত ওঠার সময়কাল এবং বাচ্চার উচ্চতা ও ওজনের গ্রোথ ট্র্যাক করার চার্ট।</p></div>
+                </div>
+                <div class="flex items-start gap-4 p-4 rounded-xl border border-pink-100 hover:shadow-md transition">
+                    <div class="bg-pink-100 text-pink-500 p-3 rounded-full"><i class="fas fa-envelope fa-fw"></i></div>
+                    <div><h4 class="font-bold text-lg">A Sealed Envelope</h4><p class="text-gray-600 text-sm">বড় হওয়ার পর সন্তানের জন্য বাবা-মায়ের লেখা একটি চিঠি সীল করে রাখার বিশেষ খাম।</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flipbook Preview Section -->
+    <section class="py-12 px-4 max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">বইয়ের ভেতরের কিছু পৃষ্ঠা দেখে নিন</h3>
+        <div class="flex overflow-x-auto gap-4 pb-6 hide-scrollbar snap-x">
+            <img src="https://placehold.co/400x500/fff1f2/be185d?text=Page+1:+About+Family" class="h-80 w-auto rounded-lg shadow-md snap-center flex-shrink-0 border border-gray-200">
+            <img src="https://placehold.co/400x500/fff1f2/be185d?text=Page+2:+First+Smile" class="h-80 w-auto rounded-lg shadow-md snap-center flex-shrink-0 border border-gray-200">
+            <img src="https://placehold.co/400x500/fff1f2/be185d?text=Page+3:+Growth+Chart" class="h-80 w-auto rounded-lg shadow-md snap-center flex-shrink-0 border border-gray-200">
+            <img src="https://placehold.co/400x500/fff1f2/be185d?text=Page+4:+First+Eid" class="h-80 w-auto rounded-lg shadow-md snap-center flex-shrink-0 border border-gray-200">
+        </div>
+        <p class="text-center text-gray-500 text-sm mt-2"><i class="fas fa-arrows-alt-h mr-1"></i> ডানে-বামে স্লাইড করুন</p>
+    </section>
+
+    <!-- Video Review Section -->
+    <section class="py-12 bg-pink-50 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-bold mb-8 text-gray-800">ভিডিও ওভারভিউ ও রিভিউ</h3>
+            <div class="aspect-video bg-white rounded-2xl shadow-lg overflow-hidden border-4 border-white relative flex items-center justify-center">
+                <!-- Video iframe goes here -->
+                <img src="https://placehold.co/800x450/e5e7eb/6b7280?text=Video+Review+Placeholder" class="w-full object-cover opacity-60">
+                <button class="absolute bg-pink-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-110 transition">
+                    <i class="fas fa-play ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="py-12 px-4 max-w-4xl mx-auto">
+        <h3 class="text-3xl font-bold text-center mb-8 text-gray-800">মায়েরা যা বলছেন</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                <i class="fas fa-quote-left text-4xl text-pink-100 absolute top-4 right-4"></i>
+                <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-gray-600 mb-4">"বইটার কোয়ালিটি অসম্ভব সুন্দর। পেজগুলো খুব প্রিমিয়াম। আমার বাবুর জীবনের সব সুন্দর মুহূর্তগুলো এখানে লিখে রাখছি। Laibo Land কে অসংখ্য ধন্যবাদ।"</p>
+                <div class="font-bold text-gray-800">- তানিয়া আক্তার, ঢাকা</div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 relative">
+                <i class="fas fa-quote-left text-4xl text-pink-100 absolute top-4 right-4"></i>
+                <div class="flex text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p class="text-gray-600 mb-4">"ডিজাইনটা এত কিউট যে দেখলেই মন ভালো হয়ে যায়। প্রেগনেন্সি থেকে শুরু করে বাবুর প্রথম স্কুল পর্যন্ত সব ডিটেইলস রাখার অপশন আছে। ১০০% রেকমেন্ডেড।"</p>
+                <div class="font-bold text-gray-800">- সুমাইয়া রহমান, ময়মনসিংহ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section id="order-section" class="py-12 px-4 bg-white">
+        <div class="max-w-2xl mx-auto">
+            <div class="text-center mb-8">
+                <h3 class="text-3xl font-bold text-gray-800 mb-3">অর্ডার করতে ফর্মটি পূরণ করুন</h3>
+                <p class="text-pink-600 font-semibold text-lg bg-pink-50 inline-block px-4 py-2 rounded-full border border-pink-100">
+                    <i class="fas fa-money-bill-wave mr-2"></i>সম্পূর্ণ ক্যাশ অন ডেলিভারি (আগে কোনো টাকা দিতে হবে না)
+                </p>
+            </div>
+
+            <form id="google-sheet-form" class="bg-gray-50 p-6 md:p-8 rounded-2xl shadow-lg border border-gray-200">
+                
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2" for="copies">কয় কপি নিবেন? <span class="text-red-500">*</span></label>
+                    <select id="copies" name="copies" required class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-white">
+                        <option value="1">১ কপি (৫৫০ টাকা)</option>
+                        <option value="2">২ কপি (১১০০ টাকা)</option>
+                        <option value="3">৩ কপি (১৬৫০ টাকা)</option>
+                    </select>
+                </div>
+
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2" for="name">আপনার নাম <span class="text-red-500">*</span></label>
+                    <input type="text" id="name" name="name" required placeholder="আপনার পূর্ণ নাম লিখুন" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2" for="phone">মোবাইল নাম্বার <span class="text-red-500">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="01XXX-XXXXXX" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 font-eng">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2" for="alt_phone">বিকল্প নাম্বার</label>
+                        <input type="tel" id="alt_phone" name="alt_phone" placeholder="01XXX-XXXXXX (ঐচ্ছিক)" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 font-eng">
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <label class="block text-gray-700 font-semibold mb-2" for="address">ডেলিভারির পূর্ণ ঠিকানা <span class="text-red-500">*</span></label>
+                    <textarea id="address" name="address" required rows="3" placeholder="গ্রাম: চরখরিচা, ডাকঘর: সদর, উপজেলা: সদর, জেলা: ময়মনসিংহ&#10;অথবা&#10;শহর: বাসা নং- ১২, রোড নং- ৫, আবাসিক হল এরিয়া, ঢাকা" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 leading-relaxed"></textarea>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold mb-2" for="email">ইমেইল অ্যাড্রেস <span class="text-gray-400 text-sm font-normal">(ঐচ্ছিক)</span></label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pink-400 font-eng">
+                </div>
+
+                <button type="submit" id="submitBtn" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold text-xl py-4 rounded-xl shadow-lg transition-all transform hover:-translate-y-1 relative overflow-hidden">
+                    <i class="fas fa-shopping-cart mr-2"></i> অর্ডার কনফার্ম করুন
+                </button>
+                <p class="text-center text-sm text-gray-500 mt-4"><i class="fas fa-lock mr-1"></i> আপনার তথ্য আমাদের কাছে শতভাগ নিরাপদ</p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-bold font-eng mb-2">LAIBO Land</h2>
+            <p class="text-gray-400 mb-4">Every child is a blessing and a gift from ALLAH.</p>
+            <div class="flex justify-center gap-4 mb-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-500 transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-500 transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-500 transition"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2026 Laibo Land. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal fixed inset-0 bg-gray-900/60 backdrop-blur-sm items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl relative transform scale-95 transition-transform duration-300" id="modalContent">
+            <div class="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center text-4xl mx-auto mb-5">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">অর্ডার সফল হয়েছে!</h3>
+            <p class="text-gray-600 mb-6">আপনার অর্ডারটি আমরা গ্রহণ করেছি। খুব শীঘ্রই আমাদের একজন প্রতিনিধি আপনাকে কল করে কনফার্ম করবেন।</p>
+            
+            <div class="bg-pink-50 p-4 rounded-xl mb-6 text-left border border-pink-100">
+                <p class="text-sm text-gray-700 mb-2 font-semibold">আমাদের সাথে যুক্ত থাকুন:</p>
+                <a href="#" class="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm border border-gray-100 mb-2 hover:border-pink-300 transition">
+                    <span class="flex items-center text-blue-600 font-semibold"><i class="fab fa-facebook mr-2 text-xl"></i> ফেসবুক গ্রুপ</span>
+                    <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                </a>
+                <a href="#" class="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm border border-gray-100 hover:border-pink-300 transition">
+                    <span class="flex items-center text-sky-500 font-semibold"><i class="fab fa-telegram mr-2 text-xl"></i> টেলিগ্রাম চ্যানেল</span>
+                    <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                </a>
+            </div>
+
+            <button onclick="closeModal()" class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold py-3 rounded-xl transition">
+                ওয়েবসাইটে ফিরে যান
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Countdown Timer Logic (6 Hours)
+        let totalSeconds = 6 * 60 * 60; // 6 hours
+
+        function updateCountdown() {
+            if(totalSeconds <= 0) return;
+            totalSeconds--;
+            
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+
+        // 2. Google Sheets Form Submission Logic
+        // Replace 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL' with your actual Google Apps Script Web App URL
+        const scriptURL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+        const form = document.getElementById('google-sheet-form');
+        const submitBtn = document.getElementById('submitBtn');
+        const successModal = document.getElementById('successModal');
+        const modalContent = document.getElementById('modalContent');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            
+            // Show loading state
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> সাবমিট হচ্ছে...';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+            const formData = new FormData(form);
+            
+            // Add Timestamp locally just in case
+            formData.append('timestamp', new Date().toLocaleString());
+
+            // Check if user put Web App URL. If not, just show success directly (for demo).
+            if(scriptURL === 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL') {
+                setTimeout(() => { showSuccess(originalBtnText); }, 1500);
+                return;
+            }
+
+            // Real fetch to Google Apps Script
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => {
+                    showSuccess(originalBtnText);
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert("ফর্ম সাবমিট করতে সমস্যা হয়েছে। দয়া করে আবার চেষ্টা করুন।");
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                });
+        });
+
+        function showSuccess(originalText) {
+            form.reset();
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            
+            // Show Modal
+            successModal.classList.add('active');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95');
+                modalContent.classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => {
+                successModal.classList.remove('active');
+            }, 300);
+        }
+    </script>
+</body>
+</html>
